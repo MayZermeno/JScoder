@@ -1,10 +1,10 @@
 //Entregable 1 Calculadora de Calorías
 
 let nombreUsuario = prompt('¡Hola! Ingresa tú nombre por favor')
-alert('Bienvenid@ ' + ' ' + nombreUsuario + '')
+alert('Bienvenid@ ' + ' ' + nombreUsuario + ' ')
 
 let aviso = (' Te voy a ayudar a calcular las calorías que debes ingerir de acuerdo a tú peso y altura.')
-alert(nombreUsuario + '' + aviso)
+alert(nombreUsuario + ' ' + aviso)
     //if y  else
 
 
@@ -12,14 +12,16 @@ alert(nombreUsuario + '' + aviso)
 let sexoValido = false;
 //constantes de uso generico
 
-const S_MASCULINO = 'H';
-const S_FEMENINO = 'M';
-let sexo = S_MASCULINO
+const sMasculino = 'H';
+const sFemenino = 'M';
+let sexo = sMasculino
 
 
 do {
     sexo = prompt('Ingresa tu sexo, H si eres hombre, M si eres mujer');
-    if (sexo === S_FEMENINO || sexo === S_MASCULINO)
+    if (sexo === sFemenino)
+        sexoValido = true;
+    else if (sexo === sMasculino)
         sexoValido = true;
     else
         alert('El sexo ingresado, no es valido, intenta de nuevo')
@@ -57,7 +59,7 @@ function enviarMensajeMujer() {
 //Función para calcular calorías Mujer
 
 function calcularcaloriasM(peso, altura, edad) {
-    alert(' Las Calorias que debes consumir de acuerdo a tu edad, peso y altura son:' + '' + ((((peso * 10) + (altura * 6.25)) - (5 * edad)) - 161));
+    alert(' Las Calorias que debes consumir de acuerdo a tu edad, peso y altura son:' + ' ' + ((((peso * 10) + (altura * 6.25)) - (5 * edad)) - 161));
     return
 }
 
@@ -65,6 +67,6 @@ function calcularcaloriasM(peso, altura, edad) {
 //Función para calcular calorías hombre
 
 function calcularcaloriasH(peso, altura, edad) {
-    alert(' Las Calorias que debes consumir de acuerdo a tu edad, peso y altura son:' + '' + ((((peso * 10) + (altura * 6.25)) - (5 * edad)) + 5));
+    alert(' Las Calorias que debes consumir de acuerdo a tu edad, peso y altura son:' + ' ' + ((((peso * 10) + (altura * 6.25)) - (5 * edad)) + 5));
     return
 }
