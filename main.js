@@ -1,15 +1,73 @@
 //Entregable 1 Calculadora de Calorías
 
-let nombre = prompt('¡Hola! Ingresa tú nombre popr favor')
-alert = ('Bienvenido' + nombre)
+let nombreUsuario = prompt('¡Hola! Ingresa tú nombre por favor')
+alert('Bienvenid@ ' + ' ' + nombreUsuario + '')
 
-let edad = parseIntprompt('Ahora por favor ingresa tu edad')
+let aviso = (' Te voy a ayudar a calcular las calorías que debes ingerir de acuerdo a tú peso y altura.')
+alert(nombreUsuario + '' + aviso)
+    //if y  else
 
-let actividadFisica = prompt('Cuantas horas haces de Actividad Física ')
-    //if 10min
-    //if 15min
-    //if 30min
-    //if 1-2 hrs
-    //if +de 3 horas 
-    //diario
-    //de vez en cuando
+
+//Ciclo
+let sexoValido = false;
+//constantes de uso generico
+let mensaje = ('Gracias');
+const S_MASCULINO = 'H';
+const S_FEMENINO = 'M';
+let sexo = S_MASCULINO
+
+
+
+do {
+    sexo = prompt('Ingresa tu sexo, H si eres hombre, M si eres mujer');
+    if (sexo === S_FEMENINO || sexo === S_MASCULINO)
+        sexoValido = true;
+    else
+        alert('El sexo ingresado, no es valido, intenta de nuevo')
+
+} while (!sexoValido);
+
+//invocar la funcion correspondiente de acuerdo al sexo ingresado
+switch (sexo) {
+    case 'M':
+        enviarMensajeMujer(mensaje);
+        break;
+    case 'H':
+        enviarMensajeHombre(mensaje);
+        break;
+    default:
+        alert('Sexo ingresado no es valido');
+        break;
+}
+
+//declaracion de funciones para cuando es un caso u otro
+function enviarMensajeHombre(sMensaje, ) {
+    console.log(+sMensaje + calcularcaloriasH + '');
+    let peso = prompt('peso');
+    let altura = prompt('altura');
+    let edad = prompt('Edad');
+    calcularcaloriasH(peso, altura, edad, );
+}
+
+function enviarMensajeMujer(sMensaje, ) {
+    console.log(sMensaje + calcularcaloriasM + '');
+    let peso = prompt('peso');
+    let altura = prompt('altura');
+    let edad = prompt('Edad');
+    calcularcaloriasM(peso, altura, edad);
+}
+
+//Función para calcular calorías Mujer
+
+function calcularcaloriasM(peso, altura, edad) {
+    alert('Las Calorias que debes consumir deacuerdo a tu edad, peso y altura son:' + ((((peso * 10) + (altura * 6.25)) - (5 * edad)) - 161));
+    return
+}
+
+
+//Función para calcular calorías hombre
+
+function calcularcaloriasH(peso, altura, edad) {
+    alert('Las Calorias que debes consumir deacuerdo a tu edad, peso y altura son:' + ((((peso * 10) + (altura * 6.25)) - (5 * edad)) + 5));
+    return
+}
