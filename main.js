@@ -17,7 +17,6 @@ const S_FEMENINO = 'M';
 let sexo = S_MASCULINO
 
 
-
 do {
     sexo = prompt('Ingresa tu sexo, H si eres hombre, M si eres mujer');
     if (sexo === S_FEMENINO || sexo === S_MASCULINO)
@@ -41,18 +40,16 @@ switch (sexo) {
 }
 
 //declaracion de funciones para cuando es un caso u otro
-function enviarMensajeHombre(sMensaje, ) {
-    console.log(+sMensaje + calcularcaloriasH + '');
-    let peso = prompt('peso');
-    let altura = prompt('altura');
+function enviarMensajeHombre() {
+    let peso = prompt('Peso (en kg ejemplo 68)');
+    let altura = prompt('Altura (en cm ejemplo: 163)');
     let edad = prompt('Edad');
     calcularcaloriasH(peso, altura, edad, );
 }
 
-function enviarMensajeMujer(sMensaje, ) {
-    console.log(sMensaje + calcularcaloriasM + '');
-    let peso = prompt('peso');
-    let altura = prompt('altura');
+function enviarMensajeMujer() {
+    let peso = prompt('Peso (en kg ejemplo 68)');
+    let altura = prompt('Altura (en cm ejemplo: 163)');
     let edad = prompt('Edad');
     calcularcaloriasM(peso, altura, edad);
 }
@@ -60,7 +57,7 @@ function enviarMensajeMujer(sMensaje, ) {
 //Función para calcular calorías Mujer
 
 function calcularcaloriasM(peso, altura, edad) {
-    alert('Las Calorias que debes consumir deacuerdo a tu edad, peso y altura son:' + ((((peso * 10) + (altura * 6.25)) - (5 * edad)) - 161));
+    alert(' Las Calorias que debes consumir de acuerdo a tu edad, peso y altura son:' + '' + ((((peso * 10) + (altura * 6.25)) - (5 * edad)) - 161));
     return
 }
 
@@ -68,6 +65,6 @@ function calcularcaloriasM(peso, altura, edad) {
 //Función para calcular calorías hombre
 
 function calcularcaloriasH(peso, altura, edad) {
-    alert('Las Calorias que debes consumir deacuerdo a tu edad, peso y altura son:' + ((((peso * 10) + (altura * 6.25)) - (5 * edad)) + 5));
+    alert(' Las Calorias que debes consumir de acuerdo a tu edad, peso y altura son:' + '' + ((((peso * 10) + (altura * 6.25)) - (5 * edad)) + 5));
     return
 }
