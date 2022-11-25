@@ -11,7 +11,7 @@ alert(nombreUsuario + '' + aviso)
 //Ciclo
 let sexoValido = false;
 //constantes de uso generico
-let mensaje = ('Gracias');
+
 const S_MASCULINO = 'H';
 const S_FEMENINO = 'M';
 let sexo = S_MASCULINO
@@ -29,10 +29,10 @@ do {
 //invocar la funcion correspondiente de acuerdo al sexo ingresado
 switch (sexo) {
     case 'M':
-        enviarMensajeMujer(mensaje);
+        enviarMensajeMujer();
         break;
     case 'H':
-        enviarMensajeHombre(mensaje);
+        enviarMensajeHombre();
         break;
     default:
         alert('Sexo ingresado no es valido');
