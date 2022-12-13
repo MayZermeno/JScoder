@@ -15,7 +15,7 @@ let sexoValido = false;
 const sMasculino = 'H';
 const sFemenino = 'M';
 let sexo = sMasculino
-
+let calculoDeKCalorias = 0;
 
 do {
     sexo = prompt('Ingresa tu sexo, H si eres hombre, M si eres mujer');
@@ -41,34 +41,38 @@ switch (sexo) {
         break;
 }
 
+function enviarMensajeMujer() {
+    let peso = prompt('Peso (en kg ejemplo 68)');
+    let altura = prompt('Altura (en cm ejemplo: 163)');
+    let edad = prompt('Edad');
+    calculoDeKCalorias = calcularcaloriasM(peso, altura, edad);
+}
+
 //declaracion de funciones para cuando es un caso u otro
 function enviarMensajeHombre() {
     let peso = prompt('Peso (en kg ejemplo 68)');
     let altura = prompt('Altura (en cm ejemplo: 163)');
     let edad = prompt('Edad');
-    calcularcaloriasH(peso, altura, edad, );
+    calculoDeKCalorias = calcularcaloriasH(peso, altura, edad);
 }
 
-function enviarMensajeMujer() {
-    let peso = prompt('Peso (en kg ejemplo 68)');
-    let altura = prompt('Altura (en cm ejemplo: 163)');
-    let edad = prompt('Edad');
-    calcularcaloriasM(peso, altura, edad);
-}
+
 
 //Función para calcular calorías Mujer
 
 function calcularcaloriasM(peso, altura, edad) {
-    alert(' Las Calorias que debes consumir de acuerdo a tu edad, peso y altura son:' + ' ' + ((((peso * 10) + (altura * 6.25)) - (5 * edad)) - 161));
-    return
+    let cal = ((((peso * 10) + (altura * 6.25)) - (5 * edad)) - 161)
+    alert(' Las Calorias que debes consumir de acuerdo a tu edad, peso y altura son: ' + cal);
+    return cal;
 }
 
 
 //Función para calcular calorías hombre
 
 function calcularcaloriasH(peso, altura, edad) {
-    alert(' Las Calorias que debes consumir de acuerdo a tu edad, peso y altura son:' + ' ' + ((((peso * 10) + (altura * 6.25)) - (5 * edad)) + 5));
-    return
+    let cal = ((((peso * 10) + (altura * 6.25)) - (5 * edad)) + 5)
+    alert(' Las Calorias que debes consumir de acuerdo a tu edad, peso y altura son: ' + cal);
+    return cal;
 }
 
 /*SEGUNDA ENTREGA*/
@@ -78,14 +82,14 @@ function calcularcaloriasH(peso, altura, edad) {
 
 const alimentos = [{
         nombre: '2 huevos revueltos,1 café americano, 1 taza de fruta, 2 tortillas',
-        kcalorias: 650,
+        kcalorias: 500,
         tipo: 'desayuno',
         opcion: '1',
 
     },
     {
         nombre: '1 sandwich de jamon de pavo, 1 café americano, 1/2 taza de fruta con queso cottage',
-        kcalorias: 680,
+        kcalorias: 580,
         tipo: 'desayuno',
         opcion: '2',
 
@@ -120,7 +124,7 @@ const alimentos = [{
     },
     {
         nombre: 'enfrijoladas de queso fresco, 1 taza de te',
-        kcalorias: 600,
+        kcalorias: 400,
         tipo: 'cena',
         opcion: '1',
 
