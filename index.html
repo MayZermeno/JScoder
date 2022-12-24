@@ -5,13 +5,156 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+    <link href="../fontawesome-free-6.2.0-web/css/fontawesome.css" rel="stylesheet">
+    <link href="../fontawesome-free-6.2.0-web/css/brands.css" rel="stylesheet">
+    <link href="../fontawesome-free-6.2.0-web/css/solid.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/styles.css">
+    <title>Formulario</title>
 </head>
 
 <body>
 
+    <!-- Inicia Barra de navegación -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="" alt="" width="70">
+                </a>
+                <button class="navbar-toggler m-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav justify-content-center  mb-lg-0">
+                        <li><a href="#">
+                            Calculadora de calorías
+                        </a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Termina barra de navegación -->
+    <!-- Comienza contenido principal de la página -->
+    <main>
+        <div class="row container-form p-4">
+            <div class="col-12 pt-4">
+                <h3>¡Hola!</h3>
+                <h5 class="pt-3">Esta es una calculadora de calorías, por favor llena el formulario para poder rivisar de acuerdo a la información que ingreses presentarte tu consumo calorico ideal.</h5>
+            </div>
+            <div class="container ">
+                <div class="row formulario">
+                    <div class="col-12">
+                        <form class="row g-3 p-3">
+                            <div class="col-md-6">
+                                <label for="inputNombre" class="form-label">¿Cuál es tu nombre?</label>
+                                <input type="text" class="form-control" id="input-nombre" value="" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="selectSexo" class="form-label">Ingresa tu género</label>
+                                <select class="form-select" id="select-sexo" aria-label="Default select example">
+                                    <option selected value="H">Hombre</option>
+                                    <option value="M">Mujer</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="input-edad" class="form-label"> Ingresa tu edad</label>
+                                <input type="number" class="form-control" id="input-edad" value="" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="input-peso" class="form-label"> Ingresa tu peso en kg.</label>
+                                <input type="number" class="form-control" id="input-peso" value="" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="input-altura" class="form-label">Ingresa tu altura en cm.</label>
+                                <input type="number" class="form-control" id="input-altura" value="">
+                            </div>
+                            <div class="col-12" style="text-align: center;">
+                                <button type="button" class="btn btn-secondary" id="btnCalcularCalorias" onclick="calcularCalorias()">
+                                    Da clic para calcular las calorias
+                                </button>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputCity" class="form-label">Estamos calculando tus calorias indicadas</label>
+                                <input type="text" disabled readonly class="form-control" id="input-calorias">
+                            </div>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Elegir un menú
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title" id="exampleModalLabel">Modal title</h3>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body" style="color: blueviolet;">
+                                            aqui va algo
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-success">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="boton" style="text-align: center;">
+                                <button class="btn btn-light" type="submit" id="enviar" value="Enviar" placeholder="Enviar">Enviar</button>
+                            </div> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Termina contenido principal -->
+    <!-- Incia footer con redes sociales -->
+    <footer>
+        <div class="row row-footer">
+            <div class="col-sm-12 col-md-5">
+                <div class="text-muted">© Copyright MZWebDesign 2022</div>
+
+            </div>
+            <div class="col-sm-12 col-md-2">
+                <div class="text-muted"></div>
+            </div>
+
+            <div class="col-sm-12 col-md-5">
+                <div class="row redes row-cols-sm-1 row-cols-md-4">
+                    <div class="col item-footer">
+
+                        <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram" ></i></a>
+
+                    </div>
+                    <div class="col item-footer">
+                        <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin" ></i></a>
+
+                    </div>
+                    <div class="col item-footer">
+                        <a href="https://www.facebook.com/"> <i class="fa-brands fa-facebook"></i></a>
+
+                    </div>
+                    <div class="col item-footer">
+                        <a href="https://wa.me/+525585312161"><i class="fa-brands fa-whatsapp" ></i></a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Termina contenido principal -->
+    <!-- Incia footer con redes sociales -->
+
 
     <script src="/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>
