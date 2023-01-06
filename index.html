@@ -25,10 +25,8 @@
                 <a class="navbar-brand" href="#">
                     <img src="" alt="" width="70">
                 </a>
-                <button class="navbar-toggler m-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                <div class="collapse navbar-collapse" id="navbarText">
+
+                <div class="navbar mx-auto" id="navbarText">
                     <ul class="navbar-nav justify-content-center  mb-lg-0">
                         <li><a href="#">
                             Calculadora de calorías
@@ -48,7 +46,7 @@
                 <h5 class="pt-3">Esta es una calculadora de calorías, por favor llena el formulario para poder rivisar de acuerdo a la información que ingreses presentarte tu consumo calorico ideal.</h5>
             </div>
             <div class="container ">
-                <div class="row formulario">
+                <div class="row formulario" id="formulario">
                     <div class="col-12">
                         <form class="row g-3 p-3">
                             <div class="col-md-6">
@@ -84,20 +82,48 @@
                                 <input type="text" disabled readonly class="form-control" id="input-calorias">
                             </div>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Elegir un menú
+                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalMenu">
+                               Ver opciones de Menús
                             </button>
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                            <div class="modal fade" id="modalMenu" tabindex="-1" aria-labelledby="modalMenuLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h3 class="modal-title" id="exampleModalLabel">Modal title</h3>
+                                            <h2 class="modal-title" id="modalMenuLabel">Te presentamos algunas opciones de menús saludables</h2>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <div class="modal-body" style="color: blueviolet;">
-                                            aqui va algo
+
+
+                                        <div class="row p-3">
+                                            <div class="col-12 ">
+                                                <h4>Elige tu Menú</h4>
+                                            </div>
+                                            <div class="col-12 p-1">
+                                                <select class="form-select" id="selectDesayunos" aria-label="Default select example">
+                                            <option disabled selected>Desayuno</option>
+                                         
+                                          </select>
+
+                                            </div>
+                                            <div class="col-12 p-1">
+                                                <select class="form-select" id="selectComidas" aria-label="Default select example">
+                                            <option disabled selected>Comida</option>
+                              
+                                          </select>
+
+                                            </div>
+                                            <div class="col-12 p-1">
+                                                <select class="form-select" id="selectCenas" aria-label="Default select example">
+                                            <option disabled selected>Cena</option>
+                                          
+                                          </select>
+
+                                            </div>
+
                                         </div>
+
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                             <button type="button" class="btn btn-success">Save changes</button>
@@ -105,9 +131,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="boton" style="text-align: center;">
-                                <button class="btn btn-light" type="submit" id="enviar" value="Enviar" placeholder="Enviar">Enviar</button>
-                            </div> -->
+
                         </form>
                     </div>
                 </div>
@@ -152,9 +176,9 @@
     <!-- Termina contenido principal -->
     <!-- Incia footer con redes sociales -->
 
-
-    <script src="/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="/main.js"></script>
+
 </body>
 
 </html>

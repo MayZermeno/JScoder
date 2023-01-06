@@ -127,19 +127,29 @@ main .contenedorindex {
     font-size: 18px;
 }
 
+h2 {
+    text-align: center;
+    color: #503c53;
+}
+
 h3 {
     text-align: center;
-    color: #ff68c5;
+    color: #b39ca1;
+}
+
+h4 {
+    text-align: center;
+    color: #a98666;
 }
 
 h5 {
     text-align: justify;
-    color: #f7f701;
+    color: #d0aa84;
     font-weight: 200;
 }
 
 .text-muted {
-    color: #ff68c5 !important;
+    color: #be8dab !important;
 }
 
 .container-form {
@@ -268,4 +278,8 @@ body {
     height: 100vh;
     width: 100vw;
     font-family: 'Montserrat', sans-serif;
+}
+
+.form-select {
+    font-size: 10px;
 }
