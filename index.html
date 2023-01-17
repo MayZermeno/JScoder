@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="../fontawesome-free-6.2.0-web/css/fontawesome.css" rel="stylesheet">
     <link href="../fontawesome-free-6.2.0-web/css/brands.css" rel="stylesheet">
     <link href="../fontawesome-free-6.2.0-web/css/solid.css" rel="stylesheet">
@@ -41,14 +42,51 @@
     <!-- Comienza contenido principal de la página -->
     <main>
         <div class="row container-form p-4">
-            <div class="col-12 pt-4">
+            <div class="col-12 seccion1">
                 <h3>¡Hola!</h3>
-                <h5 class="pt-3">Esta es una calculadora de calorías, por favor llena el formulario para poder rivisar de acuerdo a la información que ingreses presentarte tu consumo calorico ideal.</h5>
+                <h4 class="pt-3">La calculadora de calorías es una herramienta para: </h4>
+                <!-- Fila de tarjetas Beneficios-->
+                <div class="row row-cols-1 row-cols-md-3 pt-4">
+                    <div class="col">
+                        <div class="card wobble-hor-bottom">
+                            <a href="#"><i class="fa-solid fa-heart-pulse conocimientos wobble-hor-bottom"></i></a>
+                            <div class="card-img-overlay d-none d-md-block">
+                                <div class="textocard">
+                                    <p class="card-text ">Mejorar Salud</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card wobble-hor-bottom">
+                            <a href="#"><i class="fa-solid fa-weight-scale conocimientos wobble-hor-bottom"></i></a>
+                            <div class="card-img-overlay d-none d-md-block">
+                                <div class="textocard">
+
+                                    <p class="card-text ">Visualizar objetivos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card wobble-hor-bottom">
+                            <a href="#"><i class="fa-solid fa-face-smile conocimientos wobble-hor-bottom"></i></a>
+                            <div class="card-img-overlay d-none d-md-block">
+                                <div class="textocard">
+                                    <p class="card-text">Desarrollo personal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="pt-4">Auxiliar para poder determinar el cosumo calórico deseable de acuerdo a las caracteríscticas personales, es importante consultar siempre a un especialista para la implementación de una dieta adecuada y actividad física.</h5>
+
             </div>
-            <div class="container ">
+            <div class="container">
                 <div class="row formulario" id="formulario">
                     <div class="col-12">
-                        <form class="row g-3 p-3">
+                        <form class="row g-3 p-2">
                             <div class="col-md-6">
                                 <label for="inputNombre" class="form-label">¿Cuál es tu nombre?</label>
                                 <input type="text" class="form-control" id="input-nombre" value="" required>
@@ -73,7 +111,7 @@
                                 <input type="number" class="form-control" id="input-altura" value="">
                             </div>
                             <div class="col-12" style="text-align: center;">
-                                <button type="button" class="btn btn-secondary" id="btnCalcularCalorias" onclick="calcularCalorias()">
+                                <button type="button" class="btn btn-select" id="btnCalcularCalorias" onclick="calcularCalorias()">
                                     Da clic para calcular las calorias
                                 </button>
                             </div>
@@ -81,8 +119,9 @@
                                 <label for="inputCity" class="form-label">Estamos calculando tus calorias indicadas</label>
                                 <input type="text" disabled readonly class="form-control" id="input-calorias">
                             </div>
+
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalMenu">
+                            <button type="button" class="btn btn-select" data-bs-toggle="modal" data-bs-target="#modalMenu">
                                Ver opciones de Menús
                             </button>
                             <!-- Modal -->
@@ -92,30 +131,30 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h2 class="modal-title" id="modalMenuLabel">Te presentamos algunas opciones de menús saludables</h2>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                                         </div>
 
 
                                         <div class="row p-3">
                                             <div class="col-12 ">
-                                                <h4>Elige tu Menú</h4>
+                                                <h4>Opciones nutritivas</h4>
                                             </div>
                                             <div class="col-12 p-1">
-                                                <select class="form-select" id="selectDesayunos" aria-label="Default select example">
+                                                <select class="form-select opciones" id="selectDesayunos" aria-label="Default select example">
                                             <option disabled selected>Desayuno</option>
                                          
                                           </select>
 
                                             </div>
                                             <div class="col-12 p-1">
-                                                <select class="form-select" id="selectComidas" aria-label="Default select example">
+                                                <select class="form-select opciones" id="selectComidas" aria-label="Default select example">
                                             <option disabled selected>Comida</option>
                               
                                           </select>
 
                                             </div>
                                             <div class="col-12 p-1">
-                                                <select class="form-select" id="selectCenas" aria-label="Default select example">
+                                                <select class="form-select opciones" id="selectCenas" aria-label="Default select example">
                                             <option disabled selected>Cena</option>
                                           
                                           </select>
@@ -125,12 +164,13 @@
                                         </div>
 
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-success">Save changes</button>
+                                            <button type="button" class="btn btn-select" data-bs-dismiss="modal">Close</button>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
 
                         </form>
                     </div>
@@ -142,7 +182,7 @@
     <!-- Incia footer con redes sociales -->
     <footer>
         <div class="row row-footer">
-            <div class="col-sm-12 col-md-5">
+            <div class="col-sm-12 col-md-6">
                 <div class="text-muted">© Copyright MZWebDesign 2022</div>
 
             </div>
@@ -150,25 +190,19 @@
                 <div class="text-muted"></div>
             </div>
 
-            <div class="col-sm-12 col-md-5">
+            <div class="col-sm-12 col-md-4">
                 <div class="row redes row-cols-sm-1 row-cols-md-4">
                     <div class="col item-footer">
 
                         <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram" ></i></a>
 
                     </div>
-                    <div class="col item-footer">
-                        <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin" ></i></a>
 
-                    </div>
                     <div class="col item-footer">
                         <a href="https://www.facebook.com/"> <i class="fa-brands fa-facebook"></i></a>
 
                     </div>
-                    <div class="col item-footer">
-                        <a href="https://wa.me/+525585312161"><i class="fa-brands fa-whatsapp" ></i></a>
 
-                    </div>
                 </div>
             </div>
         </div>
@@ -177,6 +211,7 @@
     <!-- Incia footer con redes sociales -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="/main.js"></script>
 
 </body>
