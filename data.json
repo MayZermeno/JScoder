@@ -1,0 +1,65 @@
+[{
+        "nombre": "2 huevos revueltos,1 café americano, 1 taza de fruta, 2 tortillas",
+        "kcalorias": 500,
+        "tipo": "desayuno",
+        "opcion": "1"
+
+    },
+    {
+        "nombre": "1 sandwich de jamon de pavo, 1 café americano, 1/2 taza de fruta con queso cottage",
+        "kcalorias": 580,
+        "tipo": "desayuno",
+        "opcion": "2"
+
+    },
+    {
+        "nombre": "ensalada de berros con atún, 1/2 aguacate, 1 taza de té, 10 almendras, 1 toronja",
+        "kcalorias": 600,
+        "tipo": "desayuno",
+        "opcion": "3"
+
+    },
+    {
+        "nombre": "250 grs pechuga de pollo asada, ensalada de col, 1/2 taza de arroz, agua de jamaica",
+        "kcalorias": 850,
+        "tipo": "comida",
+        "opcion": "1"
+
+    },
+    {
+        "nombre": "250 grs de salmon ahumado, ensalada de espinaca con jitomate, 1/2 taza de pure de papa, agua de limón con chia",
+        "kcalorias": 980,
+        "tipo": "comida",
+        "opcion": "2"
+
+    },
+    {
+        "nombre": "250grs de filete de res asado, esparragos al vapor, ensalada de arugula, agua de tamarindo",
+        "kcalorias": 1100,
+        "tipo": "comida",
+        "opcion": "3"
+
+    },
+    {
+        "nombre": "enfrijoladas de queso fresco, 1 taza de te",
+        "kcalorias": 400,
+        "tipo": "cena",
+        "opcion": "1"
+
+    },
+    {
+        "nombre": "2 huevos cocidos,1 café americano, 1 pan tostado",
+        "kcalorias": 680,
+        "tipo": "cena",
+        "opcion": "2"
+
+    },
+    {
+        "nombre": "ensalada de atun con verduras, 2 tostadas de maiz, 1 taza de té",
+        "kcalorias": 720,
+        "tipo": "cena",
+        "opcion": "3"
+
+    }
+
+]

@@ -1,13 +1,6 @@
-// Entregaable 3 modificación con DOM
-
-
-document.querySelector('#input-altura').addEventListener("keyup", calcularCalorias)
-document.querySelector('#input-edad').addEventListener("keyup", calcularCalorias)
-document.querySelector('#select-sexo').addEventListener("change", calcularCalorias)
-document.querySelector('#input-altura').addEventListener("keyup", calcularCalorias)
-
 let calculoDeKCalorias = 0;
-
+//mandamos llamar a la funcion que se encarga de llenar los menus
+inicializaMenu();
 //Objeto que hace referencia al usuario 
 let persona = {
     "peso": 0,
@@ -29,14 +22,20 @@ function calcularCalorias() {
     arregloElementos.forEach(element => {
         verificaTieneTexto(element);
     });
+    if (document.querySelectorAll('.error').length > 0) {
+        Swal.fire({
+            title: 'Lo sentimos',
+            text: 'Por favor verifique haber ingresado todos los datos',
+            icon: 'warning',
+            confirmButtonText: 'Entendido'
+        })
+    }
     //Se le asigna el valor de lo ingresado por el usuario
-
     persona.peso = pesoElement.value;
     persona.edad = edadElement.value;
     persona.sexo = sexoElement.value;
     persona.nombre = nombreElement.value;
     persona.altura = alturaElement.value;
-
 
     //JSON y Local storage
     localStorage.setItem('persona', JSON.stringify(persona));
@@ -58,8 +57,8 @@ function calcularCalorias() {
     }
     let inputCalorias = document.querySelector('#input-calorias');
     inputCalorias.value = calculoDeKCalorias;
-
-
+    if (inputCalorias.value != '')
+        document.querySelector('#boton-Menu').disabled = false;
 }
 
 
@@ -74,6 +73,7 @@ function verificaTieneTexto(elementoHtml) {
     }
 
 }
+
 
 //Función para calcular calorías Mujer
 
@@ -91,122 +91,65 @@ function calcularcaloriasH(persona) {
     return cal;
 }
 
+//obtiene los menus de forma asincrona
+async function obtenerMenus() {
+    const response = await fetch('data.json');
+    console.log("Response", response.body)
+    const data = await response.json();
+    console.log("viene de la funcion de obtener menu", data);
+    return data;
+}
 
-//Eleccion de menú
 
-const alimentos = [{
-        nombre: '2 huevos revueltos,1 café americano, 1 taza de fruta, 2 tortillas',
-        kcalorias: 500,
-        tipo: 'desayuno',
-        opcion: '1',
+//inicializa el menu
+async function inicializaMenu() {
 
-    },
-    {
-        nombre: '1 sandwich de jamon de pavo, 1 café americano, 1/2 taza de fruta con queso cottage',
-        kcalorias: 580,
-        tipo: 'desayuno',
-        opcion: '2',
+    //generamos una variable para almacenar los menus
+    let alimentos = [];
+    //mandamos traer los menus del fetch de forma asincrona y esperamos a que acabe su ejecucion 
+    alimentos = await obtenerMenus();
 
-    },
-    {
-        nombre: 'ensalada de berros con atún, 1/2 aguacate, 1 taza de té, 10 almendras, 1 toronja',
-        kcalorias: 600,
-        tipo: 'desayuno',
-        opcion: '3',
 
-    },
-    {
-        nombre: '250 grs pechuga de pollo asada, ensalada de col, 1/2 taza de arroz, agua de jamaica',
-        kcalorias: 850,
-        tipo: 'comida',
-        opcion: '1',
+    //obtenemos el listado de desayunos
 
-    },
-    {
-        nombre: '250 grs de salmon ahumado, ensalada de espinaca con jitomate, 1/2 taza de pure de papa, agua de limón con chia',
-        kcalorias: 980,
-        tipo: 'comida',
-        opcion: '2',
+    const arregloDesayunos = alimentos.filter(alimento => alimento.tipo == 'desayuno');
+    const arregloComidas = alimentos.filter(alimento => alimento.tipo == 'comida');
+    const arregloCenas = alimentos.filter(alimento => alimento.tipo == 'cena');
 
-    },
-    {
-        nombre: '250grs de filete de res asado, esparragos al vapor, ensalada de arugula, agua de tamarindo',
-        kcalorias: 1100,
-        tipo: 'comida',
-        opcion: '3',
+    const selectDesayuno = document.getElementById('selectDesayunos');
+    const selectComidas = document.getElementById('selectComidas');
+    const selectCenas = document.getElementById('selectCenas');
 
-    },
-    {
-        nombre: 'enfrijoladas de queso fresco, 1 taza de te',
-        kcalorias: 400,
-        tipo: 'cena',
-        opcion: '1',
 
-    },
-    {
-        nombre: '2 huevos cocidos,1 café americano, 1 pan tostado',
-        kcalorias: 680,
-        tipo: 'cena',
-        opcion: '2',
 
-    },
-    {
-        nombre: 'ensalada de atun con verduras, 2 tostadas de maiz, 1 taza de té',
-        kcalorias: 720,
-        tipo: 'cena',
-        opcion: '3',
+    //Generar de manera dinámica las opciones del select
+
+
+    for (let index = 0; index < arregloDesayunos.length; index++) {
+        const opcionDesayuno = arregloDesayunos[index];
+
+        let option = document.createElement('option');
+        option.value = opcionDesayuno.opcion;
+        option.innerHTML = opcionDesayuno.nombre + ' ' + opcionDesayuno.kcalorias + 'kcal';
+        selectDesayuno.appendChild(option);
 
     }
+    for (let index = 0; index < arregloComidas.length; index++) {
+        const opcionComidas = arregloComidas[index];
 
-]
+        let option = document.createElement('option');
+        option.value = opcionComidas.opcion;
+        option.innerHTML = opcionComidas.nombre + ' ' + opcionComidas.kcalorias + 'kcal';
+        selectComidas.appendChild(option);
 
-// //obtenemos el listado de desayunos
-const arregloDesayunos = alimentos.filter(alimento => alimento.tipo == 'desayuno');
-const arregloComidas = alimentos.filter(alimento => alimento.tipo == 'comida');
-const arregloCenas = alimentos.filter(alimento => alimento.tipo == 'cena');
+    }
+    for (let index = 0; index < arregloCenas.length; index++) {
+        const opcionCenas = arregloCenas[index];
 
-const selectDesayuno = document.getElementById('selectDesayunos');
-const selectComidas = document.getElementById('selectComidas');
-const selectCenas = document.getElementById('selectCenas');
+        let option = document.createElement('option');
+        option.value = opcionCenas.opcion;
+        option.innerHTML = opcionCenas.nombre + ' ' + opcionCenas.kcalorias + 'kcal';
+        selectCenas.appendChild(option);
 
-//FOR ANIDADO
-
-// const menuFinal = [arregloDesayunos, arregloComidas, arregloCenas];
-// menuFinal[0]
-// for (let index = 0; index < menuFinal.length; index++) {
-//     let fila = menuFinal[index];
-//     for (let x = 0; x < fila.length; x++) { console.log(fila[x]); }
-
-
-// }
-
-//Generar de manera dinámica las opciones del select
-
-
-for (let index = 0; index < arregloDesayunos.length; index++) {
-    const opcionDesayuno = arregloDesayunos[index];
-
-    let option = document.createElement('option');
-    option.value = opcionDesayuno.opcion;
-    option.innerHTML = opcionDesayuno.nombre + ' ' + opcionDesayuno.kcalorias + 'kcal';
-    selectDesayuno.appendChild(option);
-
-}
-for (let index = 0; index < arregloComidas.length; index++) {
-    const opcionComidas = arregloComidas[index];
-
-    let option = document.createElement('option');
-    option.value = opcionComidas.opcion;
-    option.innerHTML = opcionComidas.nombre + ' ' + opcionComidas.kcalorias + 'kcal';
-    selectComidas.appendChild(option);
-
-}
-for (let index = 0; index < arregloCenas.length; index++) {
-    const opcionCenas = arregloCenas[index];
-
-    let option = document.createElement('option');
-    option.value = opcionCenas.opcion;
-    option.innerHTML = opcionCenas.nombre + ' ' + opcionCenas.kcalorias + 'kcal';
-    selectCenas.appendChild(option);
-
+    }
 }

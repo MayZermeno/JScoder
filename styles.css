@@ -426,3 +426,7 @@ body {
     background-color: #e69954;
     border-color: #e69954;
 }
+
+.contenedor-btn {
+    width: fit-content;
+}

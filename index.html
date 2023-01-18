@@ -100,11 +100,11 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="input-edad" class="form-label"> Ingresa tu edad</label>
-                                <input type="number" class="form-control" id="input-edad" value="" required>
+                                <input type="number" class="form-control" id="input-edad" value="">
                             </div>
                             <div class="col-md-4">
                                 <label for="input-peso" class="form-label"> Ingresa tu peso en kg.</label>
-                                <input type="number" class="form-control" id="input-peso" value="" required>
+                                <input type="number" class="form-control" id="input-peso" value="">
                             </div>
                             <div class="col-md-4">
                                 <label for="input-altura" class="form-label">Ingresa tu altura en cm.</label>
@@ -120,64 +120,71 @@
                                 <input type="text" disabled readonly class="form-control" id="input-calorias">
                             </div>
 
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-select" data-bs-toggle="modal" data-bs-target="#modalMenu">
-                               Ver opciones de Menús
-                            </button>
+
                             <!-- Modal -->
 
-                            <div class="modal fade" id="modalMenu" tabindex="-1" aria-labelledby="modalMenuLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h2 class="modal-title" id="modalMenuLabel">Te presentamos algunas opciones de menús saludables</h2>
 
-                                        </div>
-
-
-                                        <div class="row p-3">
-                                            <div class="col-12 ">
-                                                <h4>Opciones nutritivas</h4>
-                                            </div>
-                                            <div class="col-12 p-1">
-                                                <select class="form-select opciones" id="selectDesayunos" aria-label="Default select example">
-                                            <option disabled selected>Desayuno</option>
-                                         
-                                          </select>
-
-                                            </div>
-                                            <div class="col-12 p-1">
-                                                <select class="form-select opciones" id="selectComidas" aria-label="Default select example">
-                                            <option disabled selected>Comida</option>
-                              
-                                          </select>
-
-                                            </div>
-                                            <div class="col-12 p-1">
-                                                <select class="form-select opciones" id="selectCenas" aria-label="Default select example">
-                                            <option disabled selected>Cena</option>
-                                          
-                                          </select>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-select" data-bs-dismiss="modal">Close</button>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
 
                         </form>
+                        <!-- Button trigger modal -->
+                        <div class="contenedor-btn mx-auto">
+                            <button type="button" class="btn btn-select menu" disabled id="boton-Menu" data-bs-toggle="modal" data-bs-target="#modalMenu">
+                                Ver opciones de Menús
+                             </button>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- modalseleccion alimentos menu -->
+    <div class="modal fade" id="modalMenu" tabindex="-1" aria-labelledby="modalMenuLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalMenuLabel">Te presentamos algunas opciones de menús saludables</h2>
+
+                </div>
+
+
+                <div class="row p-3">
+                    <div class="col-12 ">
+                        <h4>Opciones nutritivas</h4>
+                    </div>
+                    <div class="col-12 p-1">
+                        <select class="form-select opciones" id="selectDesayunos" aria-label="Default select example">
+                    <option disabled selected>Desayuno</option>
+                 
+                  </select>
+
+                    </div>
+                    <div class="col-12 p-1">
+                        <select class="form-select opciones" id="selectComidas" aria-label="Default select example">
+                    <option disabled selected>Comida</option>
+      
+                  </select>
+
+                    </div>
+                    <div class="col-12 p-1">
+                        <select class="form-select opciones" id="selectCenas" aria-label="Default select example">
+                    <option disabled selected>Cena</option>
+                  
+                  </select>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-select" data-bs-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Termina contenido principal -->
     <!-- Incia footer con redes sociales -->
     <footer>
@@ -211,7 +218,7 @@
     <!-- Incia footer con redes sociales -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/main.js"></script>
 
 </body>
